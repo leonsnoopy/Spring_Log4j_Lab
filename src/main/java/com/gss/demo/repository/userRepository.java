@@ -21,4 +21,10 @@ public class userRepository {
         Query query = entityManager.createNativeQuery(sql);
         return query.getResultList();
     }
+
+    public List<Object[]> findUserByNamePassword(String name, String pass) {
+        String sql = "SELECT * FROM users WHERE name = '" + name + "' and password = '" + pass + "'";
+        Query query = entityManager.createNativeQuery(sql);
+        return query.getResultList();
+    }
 }
